@@ -24,6 +24,12 @@
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
+    .myimage{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
     </style>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
@@ -46,7 +52,13 @@
           </div>
         </div>
       </nav>
-      <img id="myimage" />
+      <div class="w3-container"> 
+
+        <img id="myimage" >
+
+      </div>
+      
+
       <div class="container bg-light">
         <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-danger" onclick="FetchApi()">Submit</button>
@@ -72,9 +84,9 @@
       http.onload = ()=>{
         //console.log(http.response)
         var httpdata = JSON.parse(http.responseText);
-        console.log(http.responseText);
-        console.log(httpdata);
-
+        var httpObject = httpdata[0];
+        console.log(httpObject.url);
+        document.getElementById("myimage").src = httpObject.url
       }
   }
 
